@@ -7,9 +7,11 @@
     // اسم پوشه پروژه روی GitHub Pages
     const repo = "/redirect-to-drv2protez";
 
-    // حذف قسمت اول مسیر (یعنی /redirect-to-drv2protez)
+    // گرفتن مسیر کامل URL فعلی
     const fullPath = window.location.pathname;
-    const cleanedPath = fullPath.startsWith(repo) ? fullPath.slice(repo.length) : fullPath;
+
+    // بررسی اینکه آیا مسیر به صورت صفحه اصلی است یا نه
+    const cleanedPath = fullPath === '/' ? '' : (fullPath.startsWith(repo) ? fullPath.slice(repo.length) : fullPath);
 
     // اضافه کردن پارامترها و هش
     const query = window.location.search + window.location.hash;
@@ -17,7 +19,7 @@
     // ساخت URL مقصد
     const finalURL = "https://drv2protez.ir" + cleanedPath + query;
 
-    // ریدایرکت
+    // ریدایرکت به URL مقصد
     window.location.replace(finalURL);
   </script>
 </head>
