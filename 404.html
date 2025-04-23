@@ -4,13 +4,24 @@
   <meta charset="UTF-8">
   <title>در حال انتقال...</title>
   <script>
-    // خواندن مسیر فعلی و انتقال به سایت جدید
-    const path = window.location.pathname + window.location.search + window.location.hash;
-    const target = "https://drv2protez.ir" + path;
-    window.location.replace(target);
+    // اسم پوشه پروژه روی GitHub Pages
+    const repo = "/redirect-to-drv2protez";
+
+    // حذف قسمت اول مسیر (یعنی /redirect-to-drv2protez)
+    const fullPath = window.location.pathname;
+    const cleanedPath = fullPath.startsWith(repo) ? fullPath.slice(repo.length) : fullPath;
+
+    // اضافه کردن پارامترها و هش
+    const query = window.location.search + window.location.hash;
+
+    // ساخت URL مقصد
+    const finalURL = "https://drv2protez.ir" + cleanedPath + query;
+
+    // ریدایرکت
+    window.location.replace(finalURL);
   </script>
 </head>
 <body>
-  <p>در حال انتقال به سایت جدید...</p>
+  <p>در حال انتقال به سایت اصلی...</p>
 </body>
 </html>
