@@ -2,28 +2,20 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8" />
-  <title>در حال انتقال به سایت اصلی...</title>
-
-  <!-- اجازه ایندکس و دنبال کردن لینک‌ها توسط گوگل -->
+  <title>در حال انتقال...</title>
   <meta name="robots" content="index, follow">
-
-  <!-- ارسال referrer برای فهمیدن منبع -->
-  <meta name="referrer" content="origin-when-cross-origin">
-
-  <!-- تگ canonical برای معرفی URL اصلی محتوا -->
-  <link rel="canonical" href="https://drv2protez.ir" />
-
-  <!-- اسکریپت ریدایرکت -->
+  <meta name="referrer" content="no-referrer">
   <script>
-    const currentPath = window.location.pathname + window.location.search + window.location.hash;
-    const destination = "https://drv2protez.ir" + currentPath;
+    // چک کردن دامنه
+    const currentDomain = window.location.hostname;
+    const githubDomain = "mosifantastic.github.io"; // دامنه GitHub
 
-    // برو به سایت اصلی
-    window.location.replace(destination);
-
-    // تگ canonical رو هم بر اساس مسیر دینامیک کن
-    const canonical = document.querySelector('link[rel="canonical"]');
-    canonical.href = destination;
+    // اگر درخواست از دامنه اصلی نبود، ریدایرکت انجام بشه
+    if (currentDomain !== githubDomain) {
+      const currentPath = window.location.pathname + window.location.search + window.location.hash;
+      const destination = "https://drv2protez.ir" + currentPath;
+      window.location.replace(destination);
+    }
   </script>
 </head>
 <body>
