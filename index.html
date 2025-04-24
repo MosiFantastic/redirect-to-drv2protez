@@ -2,13 +2,28 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8" />
-  <title>در حال انتقال...</title>
+  <title>در حال انتقال به سایت اصلی...</title>
+
+  <!-- اجازه ایندکس و دنبال کردن لینک‌ها توسط گوگل -->
   <meta name="robots" content="index, follow">
-  <meta name="referrer" content="no-referrer">
+
+  <!-- ارسال referrer برای فهمیدن منبع -->
+  <meta name="referrer" content="origin-when-cross-origin">
+
+  <!-- تگ canonical برای معرفی URL اصلی محتوا -->
+  <link rel="canonical" href="https://drv2protez.ir" />
+
+  <!-- اسکریپت ریدایرکت -->
   <script>
     const currentPath = window.location.pathname + window.location.search + window.location.hash;
     const destination = "https://drv2protez.ir" + currentPath;
+
+    // برو به سایت اصلی
     window.location.replace(destination);
+
+    // تگ canonical رو هم بر اساس مسیر دینامیک کن
+    const canonical = document.querySelector('link[rel="canonical"]');
+    canonical.href = destination;
   </script>
 </head>
 <body>
